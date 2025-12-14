@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM alpine:3.22
 
 RUN apk add --no-cache \
     nginx \
@@ -15,7 +15,7 @@ RUN mkdir -p /var/run/nginx
 
 RUN mkdir -p /var/www/html
 
-# COPY /conf/nginx.conf /etc/nginx/nginx.conf
+COPY /conf/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 443
 
