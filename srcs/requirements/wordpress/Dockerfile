@@ -2,9 +2,9 @@ FROM alpine:3.22
 
 RUN apk add --no-cache \
     php83 \
-    php83-fpm \
-    php83-mysqli \
-    php83-phar \
+	php83-fpm \
+	php83-mysqli \
+	php83-phar \
 	php83-curl \
 	php83-dom \
 	php83-exif \

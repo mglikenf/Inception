@@ -58,6 +58,3 @@ logs:
 # Show container status
 ps:
 	@docker compose -f $(COMPOSE_FILE) ps
-
-
-

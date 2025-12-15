@@ -60,6 +60,17 @@ services:
       - wordpress_data:/var/www/html
     restart: unless-stopped
 
+  adminer:
+    build:
+      context: ./requirements/bonus/adminer
+      dockerfile: Dockerfile
+    container_name: adminer
+    depends_on:
+      - mariadb
+    networks:
+      - inception
+    restart: always
+
 networks:
   inception:
     driver: bridge
