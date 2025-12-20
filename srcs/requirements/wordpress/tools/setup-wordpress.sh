@@ -66,5 +66,5 @@ fi
 chown -R nobody:nobody /var/www/html
 
 echo "Starting PHP-FPM..."
-# Start PHP-FPM in foreground (php-fpm83 for PHP 8.3)
-exec php-fpm83 -F
+# Start PHP-FPM in foreground (php-fpm84 for PHP 8.4)
+exec php-fpm84 -F
