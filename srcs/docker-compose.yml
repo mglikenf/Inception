@@ -39,6 +39,7 @@ services:
     container_name: wordpress
     depends_on:
       - mariadb
+      - redis
     networks:
       - inception
     environment:
@@ -71,6 +72,17 @@ services:
       - inception
     restart: always
 
+  redis:
+    build:
+      context: ./requirements/bonus/redis
+      dockerfile: Dockerfile
+    container_name: redis
+    networks:
+      - inception
+    volumes:
+      - redis_data:/data
+    restart: always
+
 networks:
   inception:
     driver: bridge
@@ -88,4 +100,9 @@ volumes:
       type: none
       o: bind
       device: /home/${USER}/data/mariadb
-
+  redis_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/${USER}/data/redis

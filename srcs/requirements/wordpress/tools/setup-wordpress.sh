@@ -62,7 +62,38 @@ else
 	echo "WordPress already installed."
 fi
 
+# Install Redis Object Cache plugin
+if ! wp plugin is-installed redis-cache --allow-root; then
+	echo "Installing Redis Object Cache plugin..."
+	wp plugin install redis-cache --activate --allow-root
+else
+	echo "Redis Object Cache plugin already installed"
+	wp plugin activate redis-cache --allow-root 2>/dev/null || true
+fi
+
+# Configure Redis in wp-config.php
+echo "Configuring Redis..."
+
+# Add Redis configuration if not present
+if ! grep -q "WP_REDIS_HOST" wp-config.php; then
+	sed -i "/That's all, stop editing/i \\
+\\
+/* Redis Object Cache Configuration */\\
+define ('WP_REDIS_HOST', 'redis'); \\
+define ('WP_REDIS_PORT', '6379'); \\
+define ('WP_REDIS_DATABASE', 0); \\
+define ('WP_REDIS_TIMEOUT', 1); \\
+define ('WP_REDIS_READ_TIMEOUT', 1); \\
+define ('WP_CACHE', true); \\
+" wp-config.php
+fi
+
+# Enable Redis Object Cache
+echo "Enabling Redis Object Cache..."
+wp redis enable --allow-root 2>/dev/null || true
+
 # Set proper permissions
+echo "Setting permissions..."
 chown -R nobody:nobody /var/www/html
 
 echo "Starting PHP-FPM..."

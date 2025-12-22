@@ -4,6 +4,7 @@ COMPOSE_FILE = srcs/docker-compose.yml
 DATA_DIR = $(HOME)/data
 WORDPRESS_DIR = $(DATA_DIR)/wordpress
 MARIADB_DIR = $(DATA_DIR)/mariadb
+REDIS_DIR = $(DATA_DIR)/redis
 
 GREEN = \033[0;32m
 RED = \033[0;31m
@@ -34,6 +35,7 @@ setup:
 	@echo "Creating data directories..."
 	@mkdir -p $(WORDPRESS_DIR)
 	@mkdir -p $(MARIADB_DIR)
+	@mkdir -p $(REDIS_DIR)
 	@echo "$(GREEN)Directories created$(RESET)"
 
 # Build images

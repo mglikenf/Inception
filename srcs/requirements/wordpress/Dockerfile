@@ -19,6 +19,8 @@ RUN apk add --no-cache \
 	php84-xmlwriter \
 	php84-xmlreader \
 	php84-simplexml \
+	php84-redis \
+	php84-ctype \
 	wget \
 	curl \
 	netcat-openbsd
