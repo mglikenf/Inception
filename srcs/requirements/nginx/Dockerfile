@@ -16,6 +16,7 @@ RUN mkdir -p /var/run/nginx
 RUN mkdir -p /var/www/html
 
 COPY /conf/nginx.conf /etc/nginx/nginx.conf
+#COPY ./bonus/static_site /var/www/static
 
 EXPOSE 443
 
