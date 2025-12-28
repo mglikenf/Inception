@@ -5,6 +5,7 @@ DATA_DIR = $(HOME)/data
 WORDPRESS_DIR = $(DATA_DIR)/wordpress
 MARIADB_DIR = $(DATA_DIR)/mariadb
 REDIS_DIR = $(DATA_DIR)/redis
+STATIC_DIR = $(DATA_DIR)/static
 
 GREEN = \033[0;32m
 RED = \033[0;31m
@@ -36,6 +37,7 @@ setup:
 	@mkdir -p $(WORDPRESS_DIR)
 	@mkdir -p $(MARIADB_DIR)
 	@mkdir -p $(REDIS_DIR)
+	@mkdir -p $(STATIC_DIR)
 	@echo "$(GREEN)Directories created$(RESET)"
 
 # Build images

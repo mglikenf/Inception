@@ -93,6 +93,8 @@ services:
       - "8080"
     networks:
       - inception
+    volumes:
+      - static_data:/var/www
     restart: always
 
 networks:
@@ -120,3 +122,10 @@ volumes:
       type: none
       o: bind
       device: /home/${USER}/data/redis
+
+  static_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/${USER}/data/static
