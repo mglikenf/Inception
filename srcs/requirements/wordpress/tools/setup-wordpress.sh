@@ -6,8 +6,8 @@ echo "Starting WordPress setup..."
 
 # Cleanup partial downloads if wp-config.php doesn't exist
 if [ ! -f /var/www/html/wp-config.php ] && [ -d /var/www/html ]; then
-		echo "Cleaning up partial installation..."
-		rm -rf /var/www/html/*
+	echo "Cleaning up partial installation..."
+	rm -rf /var/www/html/*
 fi
 
 # Wait for MariaDB to be ready
@@ -20,42 +20,42 @@ echo "Database is ready!"
 
 # Check if WordPress is already installed
 if [ ! -f /var/www/html/wp-config.php ]; then
-       echo "WordPress not found. Downloading..."
+	echo "WordPress not found. Downloading..."
 
-       # Download WordPress
-       wp core download --allow-root --path=/var/www/html
+	# Download WordPress
+	wp core download --allow-root --path=/var/www/html
 
-       echo "Creating wp-config.php..."
+	echo "Creating wp-config.php..."
 
-       # Create WordPress configuration
-       wp config create \
-	       --allow-root \
-	       --path=/var/www/html \
-	       --dbname=${WORDPRESS_DB_NAME} \
-	       --dbuser=${WORDPRESS_DB_USER} \
-	       --dbpass=${WORDPRESS_DB_PASSWORD} \
-	       --dbhost=mariadb:3306
+	# Create WordPress configuration
+	wp config create \
+		--allow-root \
+		--path=/var/www/html \
+		--dbname=${WORDPRESS_DB_NAME} \
+		--dbuser=${WORDPRESS_DB_USER} \
+		--dbpass=${WORDPRESS_DB_PASSWORD} \
+		--dbhost=${WORDPRESS_DB_HOST}
 
-       echo "Installing WordPress..."
-       # Install WordPress
-       wp core install \
-	       --allow-root \
-	       --path=/var/www/html \
-	       --url=${DOMAIN_NAME} \
-	       --title="${WP_TITLE}" \
-	       --admin_user=${WP_ADMIN_USER} \
-	       --admin_password=${WP_ADMIN_PASSWORD} \
-	       --admin_email=${WP_ADMIN_EMAIL}
+	echo "Installing WordPress..."
+	# Install WordPress
+	wp core install \
+		--allow-root \
+		--path=/var/www/html \
+		--url=${DOMAIN_NAME} \
+		--title="${WP_TITLE}" \
+		--admin_user=${WP_ADMIN_USER} \
+		--admin_password=${WP_ADMIN_PASSWORD} \
+		--admin_email=${WP_ADMIN_EMAIL}
 
-       echo "Creating additional user..."
-       # Create additional user
-       wp user create \
-	       --allow-root \
-	       --path=/var/www/html \
-	       ${WP_USER} \
-	       ${WP_USER_EMAIL} \
-	       --role=author \
-	       --user_pass=${WP_USER_PASSWORD}
+	echo "Creating additional user..."
+	# Create additional user
+	wp user create \
+		--allow-root \
+		--path=/var/www/html \
+		${WP_USER} \
+		${WP_USER_EMAIL} \
+		--role=author \
+		--user_pass=${WP_USER_PASSWORD}
 
 	echo "WordPress installation complete!"
 else
