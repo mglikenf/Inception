@@ -15,7 +15,7 @@ services:
       - mariadb_data:/var/lib/mysql
     networks:
       - inception
-    restart: unless-stopped
+    restart: always
 
   nginx:
     build:
@@ -31,7 +31,7 @@ services:
       - static-site
     networks:
       - inception
-    restart: unless-stopped
+    restart: always
 
   wordpress:
     build:
@@ -60,7 +60,7 @@ services:
       WP_USER_PASSWORD: ${WP_USER_PASSWORD}
     volumes:
       - wordpress_data:/var/www/html
-    restart: unless-stopped
+    restart: always
 
   adminer:
     build:
@@ -100,6 +100,7 @@ services:
 networks:
   inception:
     driver: bridge
+    name: inception_network
 
 volumes:
   wordpress_data:

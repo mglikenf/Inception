@@ -34,10 +34,7 @@ check-env:
 # Create necessary volume directories
 setup:
 	@echo "Creating data directories..."
-	@mkdir -p $(WORDPRESS_DIR)
-	@mkdir -p $(MARIADB_DIR)
-	@mkdir -p $(REDIS_DIR)
-	@mkdir -p $(STATIC_DIR)
+	@mkdir -p $(WORDPRESS_DIR) $(MARIADB_DIR) $(REDIS_DIR) $(STATIC_DIR)
 	@echo "$(GREEN)Directories created$(RESET)"
 
 # Build images

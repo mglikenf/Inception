@@ -11,7 +11,7 @@ RUN mkdir -p /etc/nginx/ssl /var/run/nginx /var/www/html
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
     -out /etc/nginx/ssl/nginx.crt \
     -keyout /etc/nginx/ssl/nginx.key \
-    -subj "/C=FR/ST=Paris/L=Paris/O=42/OU=Student/CN=localhost/UID=mglikenf"
+    -subj "/C=FR/ST=Paris/L=Paris/O=42/OU=Student/CN=${DOMAIN_NAME}/UID=mglikenf"
 
 # Copy config as root
 COPY /conf/nginx.conf /etc/nginx/nginx.conf

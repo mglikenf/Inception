@@ -20,4 +20,3 @@ RUN sed -i 's|;daemonize = yes|daemonize = no|g' /etc/php84/php-fpm.conf
 EXPOSE 9000
 
 CMD ["php-fpm84", "-F"]
-#CMD ["php84", "-S", "0.0.0.0:8080", "-t", "/var/www"]
