@@ -74,6 +74,7 @@ make up # Start containers
 ## Makefile Commands
 
 | Command | Description |
+| --- | --- |
 | `make` or `make all` | Complete setup: check env, create directories, build, and start |
 | `make build` | Build all Docker images from scratch (no cache) |
 | `make up` | Start all containers in detached mode |
@@ -83,6 +84,7 @@ make up # Start containers
 | `make re` | Rebuild everything from scratch (fclean + all) |
 | `make logs` | View real-time logs from all containers |
 | `make ps` | Show status of all containers |
+
 Run curl -k https://login.42.fr in the terminal to check connection ('logic' should be replaced by the actual student's login), or type the website address in your browser of choice.
 
 ## Accessing Services
