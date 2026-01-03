@@ -85,7 +85,7 @@ make up # Start containers
 | `make logs` | View real-time logs from all containers |
 | `make ps` | Show status of all containers |
 
-Run curl -k https://login.42.fr in the terminal to check connection ('logic' should be replaced by the actual student's login), or type the website address in your browser of choice.
+Run `curl -k https://login.42.fr` in the terminal to check connection ('logic' should be replaced by the actual student's login), or type the website address in your browser of choice.
 
 ## Accessing Services
 
