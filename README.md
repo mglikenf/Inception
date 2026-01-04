@@ -1,6 +1,6 @@
 # Inception
 
-_This project has been created by [@mglikenf](https://github.com/mglikenf) as part of the 42 School curriculum._
+_This project has been created by [mglikenf](https://github.com/mglikenf) as part of the 42 School curriculum._
 
 A Docker-based infrastructure project that sets up a complete WordPress website with multiple services using Docker Compose.
 
